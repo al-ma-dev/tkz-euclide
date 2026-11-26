@@ -6,7 +6,7 @@ These are the mistakes I make most often myself, since the syntax has changed se
 \begin{itemize}\setlength{\itemsep}{10pt}
   \item Forgetting the ``s'' of the macros that draw several objects, such as \tkzcname{tkzDrawSegments} or \tkzcname{tkzDrawCircles}: \tkzcname{tkzDrawPoint(A,B)} is wrong, you need \tkzcname{tkzDrawPoints(A,B)}.
 
-  \item Since version 4, the unit is always the cm, so you must not write a unit: \tkzcname{tkzDrawCircle[R](O,3cm)} becomes \tkzcname{tkzDrawCircle[R](O,3)}. The usual \tkzname{TikZ} options keep their units, for example \tkzname{below right = 12pt}; on the other hand, you write \tkzname{size=1.2} to set the radius of the arc in \tkzcname{tkzMarkAngle}.
+  \item Since version 4, the unit is always the cm, so you must not write a unit: \tkzcname{tkzDefCircle[R](O,3cm)} becomes \tkzcname{tkzDefCircle[R](O,3)}. The usual \tkzname{TikZ} options keep their units, for example \tkzname{below right = 12pt}; on the other hand, you write \tkzname{size=1.2} to set the radius of the arc in \tkzcname{tkzMarkAngle}.
 
   \item Parentheses instead of braces. A point that is created has its name between braces, while a point that is used, as an option or as an argument, has its name between parentheses: write \tkzcname{tkzGetPoint\{A\}}, not \tkzcname{tkzGetPoint(A)}.
 

@@ -4,11 +4,11 @@
 % Maintainer: Alain Matthes
 
 %---------------------------------------------------------------
-\def\fileversion{5.14c}
-\def\filedate{2026/10/16}
-\typeout{2026/10/16 5.14c  tkz-euclide.sty}
+\def\fileversion{5.15c}
+\def\filedate{2026/11/26}
+\typeout{2026/11/26 5.15c  tkz-euclide.sty}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tkz-euclide}[ 2026/10/16 5.14c for pure  Euclidean Geometry ]
+\ProvidesPackage{tkz-euclide}[ 2026/11/26 5.15c for pure  Euclidean Geometry ]
 \newif\if@tkzlua
 \@tkzluafalse
 \DeclareOption{lua}{\@tkzluatrue}
@@ -37,6 +37,7 @@
 \newif\iftkzFlagLC\tkzFlagLCfalse
 \newif\iftkzFlagCC\tkzFlagCCfalse
 \newif\iftkz@near\tkz@nearfalse
+\newif\iftkz@lcthrough\tkz@lcthroughfalse % \tkzInterLC: line through the centre
 %---------------------
 \newif\iftkzLinear\tkzLinearfalse
 \newif\iftkzOrtho\tkzOrthofalse
@@ -102,6 +103,7 @@
 \newif\iftkzFlagLC\tkzFlagLCfalse
 \newif\iftkzFlagCC\tkzFlagCCfalse
 \newif\iftkz@near\tkz@nearfalse
+\newif\iftkz@lcthrough\tkz@lcthroughfalse % \tkzInterLC: line through the centre
 %--------------------- utilities
 \newif\iftkzLinear\tkzLinearfalse
 \newif\iftkzOrtho\tkzOrthofalse

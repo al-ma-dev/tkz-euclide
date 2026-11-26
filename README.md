@@ -1,5 +1,5 @@
 # tkz-euclide — Euclidean Geometry with TikZ
-Release 5.14c — 2026/10/16
+Release 5.15c — 2026/11/26
 
 ## Description
 

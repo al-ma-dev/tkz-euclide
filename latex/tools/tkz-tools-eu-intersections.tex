@@ -3,7 +3,7 @@
 % SPDX-License-Identifier: LPPL-1.3c
 % Maintainer: Alain Matthes
 
-\typeout{2026/10/16 5.14c tkz-tools-eu-intersections.tex}
+\typeout{2026/11/26 5.15c tkz-tools-eu-intersections.tex}
 \makeatletter
 %<--------------------------------------------------------------------------–>
 %                 intersection  de deux lignes
@@ -145,6 +145,7 @@
 \begingroup
 \pgfqkeys{/linecircle}{#1}
  \pgfinterruptboundingbox
+\global\tkz@lcthroughfalse
 \ifcase\tkz@numlc%
     % first case 0
   \tkz@@CalcLength(#4,#5){tkzLengthResult}
@@ -169,6 +170,9 @@
 \else
     \ifx\tkz@common\tkzutil@empty
       \ifx\tkz@nextto\tkzutil@empty
+        % line through the centre: the order given by \tkzInterLCR is kept
+        % (the angle is 0 or 180 and would depend on rounding)
+        \iftkz@lcthrough\else
          \tkzFindAngle(tkzSecondPointResult,tkzFirstPointResult,#4)
          \tkzGetAngle{tkz@an}
           \ifdim\tkz@an pt<180 pt\relax%
@@ -177,6 +181,7 @@
            \pgfnodealias{tkzSecondPointResult}{tkzFirstPointResult}
            \pgfnodealias{tkzFirstPointResult}{tkzPointTmp}
           \fi
+        \fi
       \else
          \tkz@@CalcLength(\tkz@nextto,tkzFirstPointResult){tkzLengthFirst}
          \tkz@@CalcLength(\tkz@nextto,tkzSecondPointResult){tkzLengthSecond}
@@ -223,6 +228,7 @@
         \advance\tkz@by by\tkz@ay\relax%
         \pgfcoordinate{#6}{\pgfqpoint{\tkz@bx}{\tkz@by}}
         \tkzCSym(#3)(#6){#5}
+        \global\tkz@lcthroughtrue
   \else
        \edef\pgfmathresult{\fpeval{\tkz@mathLen/\tkz@radi}}
       % \edef\tkz@angle{\fpeval{acosd(\pgfmathresult)}}

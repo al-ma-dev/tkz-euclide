@@ -53,6 +53,7 @@ options            & default & definition                         \\
 \medskip   
 The macro defines the intersection points $I$ and $J$ of the line $(AB)$ and the circle with center $O$ and radius $r$, if they exist; otherwise, an error is reported in the |.log| file. With \tkzname{with nodes}, you don't need to calculate the radius, which is the length of $[CD]$.
 If \tkzname{common} and \tkzname{near} are not used, \tkzname{tkzFirstPoint} is the point that gives the smallest angle (formed with \tkzname{tkzSecondPoint} and the center of the circle).
+If the line passes through the center, \tkzname{tkzSecondPoint} is the point located in the direction of the line, from $A$ to $B$ (since version 5.15).
 \end{NewMacroBox}
 
 \begin{NewMacroBox}{tkzTestInterLC}{\parg{$O,A$}\parg{$O',B$}}%
@@ -106,8 +107,10 @@ In the following example, the circle is drawn with two points, and the intersect
 \end{tikzpicture} 
 \end{tkzexample}
 
-\subsubsection{Line passing through the center: option \tkzname{common}}
-This case is special: the angles cannot be compared, so the option \tkzname{near} must be used. \tkzname{tkzFirstPoint} is assigned to the point closest to the first point given for the line. Here we want $A$ to be closest to $Lb$.
+\subsubsection{Line passing through the center}\label{interLC-center}
+This case is special: the two points and the center are aligned, so the angles cannot be compared. Since version 5.15, the order is fixed: with \tkzcname{tkzInterLC}\parg{La,Lb}\parg{O,D}, \tkzname{tkzSecondPoint} is the point located in the direction of the line, from $La$ to $Lb$, and \tkzname{tkzFirstPoint} is the other one. (Before 5.15, the order depended on rounding, and the results with and without the option \tkzname{lua} could be different.)
+
+You can also use the option \tkzname{near}: \tkzname{tkzFirstPoint} is then the point closest to the first point given for the line. Here we want $A$ to be closest to $Lb$; \tkzcname{tkzInterLC}\parg{Lb,La}\parg{O,D} without option gives the same point.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}

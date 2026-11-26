@@ -4,6 +4,11 @@ All notable changes to this project will be documented here.
 The version suffix **c** indicates the CTAN release.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ---
+## [5.15c] — 2026/11/26
+### Fixed
+- `\tkzInterLC` with a line through the centre of the circle: the order of the two points depended on rounding (the luaLaTeX and TeX versions could give them in opposite order). The second point is now always in the direction of the line, from its first point to its second point.
+- Documentation: FAQ (`\tkzDefCircle[R]` instead of the removed `\tkzDrawCircle[R]`) and default option of `\tkzDefCircle` (`R`).
+
 ## [5.14c] — 2026/10/16
 ### Fixed
 - `\tkzDefCircle[orthogonal from=…]` / `[orthogonal through=…]`: the choice leaked globally; every later `\tkzDefCircle(A,B,C)` without option failed.
